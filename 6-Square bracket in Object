@@ -1,0 +1,42 @@
+>For accesing the multivalue property
+> By using dot we can't access the the multivalue property
+
+let user = {};
+// set
+user["likes birds"] = true;
+// get
+alert(user["likes birds"]); // true
+// delete
+delete user["likes birds"];
+
+
+***************************************************************
+Computed Properties in Object 
+
+let x = "name";
+
+let obj = {
+  [x]: "ankit",
+};
+
+console.log(obj);
+
+***********************************************************
+You can also write like this
+
+function makePair(first, second) {
+  return {
+    first,
+    second,
+  };
+}
+
+let obj = makePair("ANkit", "kumar");
+
+console.log(obj);
+
+
+
+
+
+
