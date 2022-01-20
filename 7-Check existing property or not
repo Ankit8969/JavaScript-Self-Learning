@@ -1,0 +1,74 @@
+Reading a non-existing property just returns undefined. So we can easily test whether the property exists:
+
+********************************************************************************
+/*  We have to ways to check the propery is present or not */
+let x = {};
+
+if (x.ankit === undefined) {
+  console.log("Not present");
+} else {
+  console.log("Present");
+}
+
+
+
+let x = {};
+
+if ("age" in x) {
+  console.log("present");
+} else {
+  console.log("not Present");
+}
+
+****************************************************************
+
+You can also run a loop over through the Object
+let user = {
+  name: "ankit",
+  age: 20,
+  school: "Makaut",
+};
+
+for (let key in user) {
+  console.log(key);
+  console.log(user[key]);
+}
+
+
+************************************************************************************************
+You can ALso add the value like this 
+"using assign method"
+
+let x = {
+  name: "Ankit",
+};
+
+Object.assign(x, { age: 20, lapto: "Air" });
+
+console.log(x);
+
+
+/******************** You can also use this for copying the object */
+
+JSON.parse(JSON.stringify(x));
+
+but the difference is those value undefined that value it don't copy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
