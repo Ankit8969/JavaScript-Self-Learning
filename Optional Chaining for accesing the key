@@ -1,0 +1,6 @@
+const user = {};
+console.log(user.name); // it give undefined
+
+console.log(user.name.something); // it give error
+
+console.log(user.name?.age);
