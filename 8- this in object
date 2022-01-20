@@ -1,0 +1,30 @@
+you can also write the function in object
+
+let obj = {
+  xyz() {
+    console.log("check");
+  },
+  name: "Ankit",
+};
+
+console.log(obj);
+
+
+***********************************************************
+This in OBject
+
+“this” in methods
+It’s common that an object method needs to access the information stored in the object to do its job.
+
+let user = {
+  name: "John",
+  age: 30,
+
+  sayHi() {
+    // "this" is the "current object"
+    alert(this.name);
+  },
+};
+
+user.sayHi();
+
