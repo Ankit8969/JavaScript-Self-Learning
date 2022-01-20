@@ -1,0 +1,25 @@
+> Object is not-Premitive data type
+> An object can be created with figure brackets {…} with an optional list of properties. 
+    A property is a “key: value” pair, where key is a string (also called a “property name”), and value can be anything.
+
+/* Creating an empty object, we have to ways */
+
+let user = new Object(); // "object constructor" syntax
+let user = {};  // "object literal" syntax
+
+/* You can also add a new key value pair like this */
+let a = {
+  name: "ankit",
+  roll: "23",
+};
+a.school = "makaut";
+
+
+/* you can also delete a key value pair */
+let a = {
+  name: "ankit",
+  roll: "23",
+};
+a.school = "makaut";
+delete a.name;
+
