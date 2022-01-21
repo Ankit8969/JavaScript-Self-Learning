@@ -1,0 +1,83 @@
+let arr = ["ankit", "kumar"];
+
+let [first, second, third] = arr;
+console.log(first, second, third);
+
+In COnsole -> ankit kumar undefined
+
+*********************
+Actually, we can use it with any iterable, not only arrays:
+
+let [a, b, c] = "abc"; // ["a", "b", "c"]
+let [one, two, three] = new Set([1, 2, 3]);
+
+*********************************
+
+let obj = {
+  name: "Ankit",
+  roll: "2",
+};
+
+for (let [key, value] of Object.entries(obj)) console.log(key, value);
+
+
+******************************************************
+let arr = [1, 2, 3, 4, 5, 6];
+
+let [first, second, ...third] = arr;
+console.log(first, second, third);
+
+
+********************************************
+let obj = {
+  names: "Ankit",
+  roll: 20,
+};
+
+const { names, roll } = obj;
+console.log(names, roll);
+
+****************************************
+
+
+"..." is rest operator
+
+
+*********************************************
+For Time Method
+let obj = new Date();
+
+console.log(obj.getFullYear());
+
+console.log(obj.getMonth());
+
+console.log(obj.getDate());
+console.log(obj.getHours());
+console.log(obj.getMinutes());
+console.log(obj.getSeconds());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
