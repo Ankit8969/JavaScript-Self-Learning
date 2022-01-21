@@ -1,0 +1,89 @@
+Map
+Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.
+
+Methods and properties are:
+
+new Map() – creates the map.
+map.set(key, value) – stores the value by the key.
+map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+map.has(key) – returns true if the key exists, false otherwise.
+map.delete(key) – removes the value by the key.
+map.clear() – removes everything from the map.
+map.size – returns the current element count.
+
+
+
+************************************
+let map = new Map();
+
+map.set(2, 1);
+map.set(3, 1);
+map.set(4, 1);
+map.set(5, 1);
+map.set(7, 2);
+map.set(7, map.get(7) === undefined ? 1 : map.get(7) + 1);
+
+console.log(map);
+
+**************************************************************************
+FOR MAP VALUES ITERATION
+
+let recipeMap = new Map([
+  ['cucumber', 500],
+  ['tomatoes', 350],
+  ['onion',    50]
+]);
+
+// iterate over keys (vegetables)
+for (let vegetable of recipeMap.keys()) {
+  alert(vegetable); // cucumber, tomatoes, onion
+}
+
+// iterate over values (amounts)
+for (let amount of recipeMap.values()) {
+  alert(amount); // 500, 350, 50
+}
+
+// iterate over [key, value] entries
+for (let entry of recipeMap) { // the same as of recipeMap.entries()
+  alert(entry); // cucumber,500 (and so on)
+}
+
+********************************************************************************
+
+SET IN JS
+
+Set
+A Set is a special type collection – “set of values” (without keys), where each value may occur only once.
+
+Its main methods are:
+
+new Set(iterable) – creates the set, and if an iterable object is provided (usually an array), copies values from it into the set.
+set.add(value) – adds a value, returns the set itself.
+set.delete(value) – removes the value, returns true if value existed at the moment of the call, otherwise false.
+set.has(value) – returns true if the value exists in the set, otherwise false.
+set.clear() – removes everything from the set.
+set.size – is the elements count.
+
+
+It store the unique value but not in sorted order
+
+Iteration over set
+
+for (let x of set) console.log(x);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
