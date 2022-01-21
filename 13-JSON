@@ -1,0 +1,21 @@
+IF we want to send some data to the server then we convert it to "JSON"
+
+
+JSON.stringify to convert objects into JSON.
+JSON.parse to convert JSON back into an object.
+
+let student = {
+  name: "John",
+  age: 30,
+  isAdmin: false,
+  courses: ["html", "css", "js"],
+  wife: null,
+};
+
+let obj = JSON.stringify(student);
+console.log(obj);
+
+obj = JSON.parse(obj);
+console.log(obj);
+
+
