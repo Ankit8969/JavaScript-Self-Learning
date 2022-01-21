@@ -1,0 +1,88 @@
+let billion = 1000000000;
+We also can use underscore _ as the separator:
+
+let billion = 1_000_000_000;
+
+
+// 
+let arr = []
+arr.push(45);
+arr.pop();
+arr.shift()  it remove the first element, and also shrink the array size.
+
+arr.unshift("Ankit") it add the data at the beginning
+
+
+*****************************************************************************************
+You can also write like this
+
+let arr = new Array(1, 2, 3);
+console.log(arr);
+
+*****************************************************************************************
+let arr = [1, 2, 3, 4];
+
+// delete arr[2];
+arr.splice(1, 2); // it remove the item from the array starting position from 1 and erase 2 item
+
+// it remove the items and push these three string
+arr.splice(1, 1, "ankit", "kumar", "yadav");
+
+arr.splice(1, 0); // it don't remove any element
+
+console.log(arr);
+
+********************************************************************************************************
+let arr = [1, 2, 3, 4];
+
+// for each method for array traversing
+
+arr.forEach((value) => console.log(value));
+
+****************************************************
+Searching Property( All three searching property takes 2 argument second one was optional)
+1: indexOf()
+
+let arr = [1,2,3,4];
+const t = arr.indexOf(3);
+if value is present in the array it give the index otherwise it give -1
+
+
+2: arr.lastIndexOf(item, from) – same, but looks for from right to left.
+3: arr.includes(item, from) – looks for item starting from index from, returns true if found.
+
+*********************************************************************************************
+Find Method in Array
+// If not present it gives undefined
+
+let arr = [
+  { name: "Ankit", id: 2 },
+  { name: "sonu", id: 1 },
+  { name: "MAnish", id: 3 },
+];
+
+let user = arr.find((data) => data.name === "Ankit");
+console.log(user);
+
+
+*********************************************************************************************
+Filter Method 
+
+let arr = [
+  { name: "Ankit", id: 2 },
+  { name: "sonu", id: 1 },
+  { name: "MAnish", id: 3 },
+];
+
+let temp = arr.filter((value) => value.id >= 2);
+console.log(temp);
+
+
+***********************************
+Sorting in array
+let arr = [ 1, 2, 15 ];
+
+// the method reorders the content of arr
+arr.sort();
+
+alert( arr );  // 1, 15, 2
