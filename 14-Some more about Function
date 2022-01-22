@@ -1,0 +1,89 @@
+let arr = [];
+arr.push(2);
+arr.push(3);
+
+arr.push(2, 3, 4);
+
+// Size will be 5
+
+***************************************************
+
+function sum(x,y,...z){
+    console.log(x);
+    console.log(y);
+    console.log(z); // z will print the array which contain [4,5,6,4]
+};
+
+sum(2,3,4,5,6,4)
+****************************************************
+
+Blocks for let and const
+
+If a variable is declared inside a code block {...}, it’s only visible inside that block.
+
+*********************************
+function sum() {
+  let x = 2;
+  return function () {
+    let z = 2;
+    return x + z;
+  };
+}
+
+let z = sum();
+console.log(z());
+
+It prints 4 because of closure
+
+***********************************************************************
+
+
+
+Agarin Sorting 
+
+We can sort the array of object like this
+
+let arr = [
+  {
+    name: "Ankit",
+    roll: 2,
+  },
+  {
+    name: "Sonu",
+    roll: 1,
+  },
+  {
+    name: "Aankit",
+    roll: 5,
+  },
+  {
+    name: "Rohan",
+    roll: 2,
+  },
+];
+
+arr.sort((a, b) => (a.name > b.name ? 1 : -1));
+
+console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
