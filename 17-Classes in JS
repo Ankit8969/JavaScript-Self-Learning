@@ -1,0 +1,88 @@
+The “class” syntax
+The basic syntax is:
+
+class MyClass {
+  // class methods
+  constructor() { ... }
+  method1() { ... }
+  method2() { ... }
+  method3() { ... }
+  ...
+}
+
+************************************************
+
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHi() {
+    console.log(this.name);
+  }
+}
+
+let user = new User("Ankit");
+user.sayHi();
+
+**************************************************************************************************
+
+Inheritance in Class
+
+
+class Animal {
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+  run(speed) {
+    this.speed = speed;
+    console.log("Run Function " + this.speed);
+  }
+  stop() {
+    this.speed = 0;
+    console.log("Stop Function " + this.name);
+  }
+}
+
+let animal = new Animal("My animal");
+
+class Rabbit extends Animal {
+  hide() {
+    console.log("hides Function");
+  }
+}
+
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5); // White Rabbit runs with speed 5.
+rabbit.hide(); // White Rabbit hides!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
