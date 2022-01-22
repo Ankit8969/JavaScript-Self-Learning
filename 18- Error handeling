@@ -1,1 +1,52 @@
 
+The “try…catch” syntax
+The try...catch construct has two main blocks: try, and then catch:
+
+try {
+
+  // code...
+
+} catch (err) {
+
+  // error handling
+
+}
+
+********************************************
+try {
+  console.log("Start of try runs");
+  console.log("End of try runs");
+} catch (err) {
+  console.log("Catch is ignored, because there are no errors"); // (3)
+}
+
+// It present the two line of try block
+
+*************************************************************************
+try {
+  console.log("Start of try runs");
+  dfdfdf;
+  console.log("End of try runs");
+} catch (err) {
+  console.log(err); // (3)
+}
+
+// first it print the first console
+// then read the unknow variable name
+// move to catch block and print the err
+
+
+
+*****************************
+
+err which we pass to error block basically it is an object
+
+try {
+  console.log("Start of try runs");
+  dfdfdf;
+  console.log("End of try runs");
+} catch (err) {
+  console.log(err.name); // ReferenceError
+  console.log(err.message); // lalala is not defined
+  console.log(err.stack);
+}
