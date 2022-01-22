@@ -1,0 +1,75 @@
+********************
+let animal = {
+  eats: true,
+};
+let fox = {
+  jumps: true,
+};
+
+fox.__proto__ = animal;
+
+console.log(fox.eats);
+
+*******************************************
+let animal = {
+  eats: true,
+  walk() {
+    alert("Animal walk");
+  }
+};
+
+let rabbit = {
+  jumps: true,
+  __proto__: animal
+};
+
+// walk is taken from the prototype
+rabbit.walk(); // Animal walk
+
+****************************************************
+You can also write Like this 
+let animal = {
+  eats: true,
+  walk() {
+    /* this method won't be used by rabbit */
+  },
+};
+
+let rabbit = {
+  __proto__: animal,
+};
+
+rabbit.walk = function () {
+  alert("Rabbit! Bounce-bounce!");
+};
+
+console.log(rabbit);
+
+***************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
