@@ -1,0 +1,44 @@
+const post = [
+  { title: "First Post" },
+  { title: "Second Post" },
+  { title: "Third Post" },
+];
+
+function getPosts() {
+  let t = "";
+  setTimeout(() => {
+    post.forEach((item) => {
+      t += `<li>${item.title}</li>`;
+    });
+    document.body.innerHTML = t;
+  }, 1000);
+}
+
+function createPost(temp) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      post.push(temp);
+      resolve();
+    }, 2000);
+  });
+}
+
+async function init() {
+  await createPost({ title: "Fourth" });
+  getPosts();
+}
+init();
+
+
+***********************************************
+WE CAN ALSO WRITE LIKE THIS
+
+
+async function fetchUsers() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users").then(
+    (res) => res.json()
+  );
+  console.log(res);
+}
+
+fetchUsers();
