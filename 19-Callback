@@ -1,0 +1,28 @@
+Passing a function to another function as an argument this is known as Callback
+
+
+const post = [
+  { title: "First Post" },
+  { title: "Second Post" },
+  { title: "Third Post" },
+];
+
+function getPosts() {
+  let t = "";
+  setTimeout(() => {
+    post.forEach((item) => {
+      t += `<li>${item.title}</li>`;
+    });
+    document.body.innerHTML = t;
+  }, 2000);
+}
+
+// getPosts();
+
+function createPost(temp, callback) {
+  setTimeout(() => {
+    post.push(temp);
+    callback();
+  }, 3000);
+}
+createPost({ title: "forth post" }, getPosts);
