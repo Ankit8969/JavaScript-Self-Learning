@@ -392,11 +392,56 @@ console.log(names, roll);
   - console.log(obj.getSeconds());
 
  
+# JSON in java-script
+  - IF we want to send some data to the server then we convert it to "JSON"
+  - JSON.stringify to convert objects into JSON.
+  - JSON.parse to convert JSON back into an object.
+  ```
+    let student = {
+      name: "John",
+      age: 30,
+      isAdmin: false,
+      courses: ["html", "css", "js"],
+      wife: null,
+    };
+
+    let obj = JSON.stringify(student);
+    console.log(obj);
+
+    obj = JSON.parse(obj);
+    console.log(obj);
+  ```
+
+  # How to sort object in javascript 
+***We can sort the array of object like this***
+  ```
+let arr = [
+  {
+    name: "Ankit",
+    roll: 2,
+  },
+  {
+    name: "Sonu",
+    roll: 1,
+  },
+  {
+    name: "Aankit",
+    roll: 5,
+  },
+  {
+    name: "Rohan",
+    roll: 2,
+  },
+];
+
+arr.sort((a, b) => (a.name > b.name ? 1 : -1));
+
+console.log(arr);
+  ```
   
   
   
-  
-  
+
   
   
   
