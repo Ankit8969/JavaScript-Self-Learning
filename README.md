@@ -1,6 +1,7 @@
 ## About JavaScript
-> JavaScript was initially created to  ###make web pages alive.
-> Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.
+- JavaScript was initially created to  ###make web pages alive.
+- Today, JavaScript can execute not only in the browser-
+-  but also on the server actually on any device that has a special program called the JavaScript engine.
 
 ## How do engines work?
   - The engine (embedded if it’s a browser) reads (“parses”) the script.
