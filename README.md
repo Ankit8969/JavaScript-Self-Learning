@@ -438,12 +438,210 @@ arr.sort((a, b) => (a.name > b.name ? 1 : -1));
 
 console.log(arr);
   ```
+  ```
+let arr = [];
+arr.push(2);
+arr.push(3);
+arr.push(2, 3, 4);
+// Size will be 5
+```
   
-  
-  
+***************************************************
+```
+function sum(x,y,...z){
+    console.log(x);
+    console.log(y);
+    console.log(z); // z will print the array which contain [4,5,6,4]
+};
 
+sum(2,3,4,5,6,4)
+  ```
+****************************************************
+
+## Blocks for let and const
+
+## If a variable is declared inside a code block {...}, it’s only visible inside that block.
+```
+function sum() {
+  let x = 2;
+  return function () {
+    let z = 2;
+    return x + z;
+  };
+}
+
+let z = sum();
+console.log(z());
+
+It prints 4 because of closure
+```
+***********************************************************************
+
+# setTimeout() in JS
+  ```
+    function sum(x, y) {
+      console.log(x + y);
+    }
+
+    let t = setTimeout(sum, 5000, 2, 3);
+
+    let t2 = setTimeout(sum, 5000, 2, 4);
+
+    clearTimeout(t2);
+
+    console.log(t, t2);
+  ```
+
+- set time out returns a timerId
+- you can also clear that Timer, once you clear that id than that funciton will not call in future 
+
+***********************************************************************************************************
+## Using setTimeout and setInterval together
+```
+// repeat with the interval of 2 seconds
+let timerId = setInterval(() => console.log("start"), 2000);
+
+// after 5 seconds stop
+setTimeout(() => {
+  clearInterval(timerId);
+  console.log("stop");
+}, 5000);
+```
+****************************************************************************
+
+## Zero delay setTimeout
+  - setTimeout(func, 0), or just setTimeout(func).
+
+
+# Inheritance in Object
+  ```
+let animal = {
+  eats: true,
+};
+let fox = {
+  jumps: true,
+};
+
+fox.__proto__ = animal;
+
+console.log(fox.eats);
+```
+*******************************************
+  ```
+let animal = {
+  eats: true,
+  walk() {
+    alert("Animal walk");
+  }
+};
+
+let rabbit = {
+  jumps: true,
+  __proto__: animal
+};
+
+// walk is taken from the prototype
+rabbit.walk(); // Animal walk
+```
   
+****************************************************
+  ```
+You can also write Like this 
+let animal = {
+  eats: true,
+  walk() {
+    /* this method won't be used by rabbit */
+  },
+};
+
+let rabbit = {
+  __proto__: animal,
+};
+
+rabbit.walk = function () {
+  alert("Rabbit! Bounce-bounce!");
+};
+
+console.log(rabbit);
+```
+***************************************************************
   
+# Classes in JavaScript
+
+***The “class” syntax***
+- The basic syntax is:
+```
+class MyClass {
+  // class methods
+  constructor() { ... }
+  method1() { ... }
+  method2() { ... }
+  method3() { ... }
+  ...
+}
+  ```
+
+************************************************
+```
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHi() {
+    console.log(this.name);
+  }
+}
+
+let user = new User("Ankit");
+user.sayHi();
+```
+**************************************************************************************************
+
+## Inheritance in Class
+```
+class Animal {
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+  run(speed) {
+    this.speed = speed;
+    console.log("Run Function " + this.speed);
+  }
+  stop() {
+    this.speed = 0;
+    console.log("Stop Function " + this.name);
+  }
+}
+
+let animal = new Animal("My animal");
+
+class Rabbit extends Animal {
+  hide() {
+    console.log("hides Function");
+  }
+}
+let rabbit = new Rabbit("White Rabbit");
+
+rabbit.run(5); // White Rabbit runs with speed 5.
+rabbit.hide(); // White Rabbit hides!
+```
+
+## Try and Catch block
+  ```
+  
+try {
+    console.log("Start of try runs");
+    dfdfdf;
+    console.log("End of try runs");
+  } catch (err) {
+    console.log(err.name); // ReferenceError
+    console.log(err.message); // lalala is not defined
+    console.log(err.stack);
+  }
+  ```
+
+  # NExt Update from 19
   
   
   
