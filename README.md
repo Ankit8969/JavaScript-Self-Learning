@@ -1,5 +1,5 @@
 ## About JavaScript
-- JavaScript was initially created to  ###make web pages alive.
+- JavaScript was initially created to  ***make web pages alive.***
 - Today, JavaScript can execute not only in the browser-
 -  but also on the server actually on any device that has a special program called the JavaScript engine.
 
