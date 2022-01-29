@@ -642,7 +642,163 @@ try {
   }
   ```
 
-  # NExt Update from 19
+  # Callback in JS
+  ***Passing a function to another function as an argument this is known as Callback***
+  ```
+  
+const post = [
+  { title: "First Post" },
+  { title: "Second Post" },
+  { title: "Third Post" },
+];
+
+function getPosts() {
+  let t = "";
+  setTimeout(() => {
+    post.forEach((item) => {
+      t += `<li>${item.title}</li>`;
+    });
+    document.body.innerHTML = t;
+  }, 2000);
+}
+
+// getPosts();
+
+function createPost(temp, callback) {
+  setTimeout(() => {
+    post.push(temp);
+    callback();
+  }, 3000);
+}
+createPost({ title: "forth post" }, getPosts);
+  ```
+ 
+# Promise in JS
+```
+  const post = [
+  { title: "First Post" },
+  { title: "Second Post" },
+  { title: "Third Post" },
+];
+
+function getPosts() {
+  let t = "";
+  setTimeout(() => {
+    post.forEach((item) => {
+      t += `<li>${item.title}</li>`;
+    });
+    document.body.innerHTML = t;
+  }, 1000);
+}
+
+function createPost(temp) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      post.push(temp);
+      reject("error something goes wrong");
+    }, 2000);
+  });
+}
+
+createPost({ title: "forth post" })
+  .then(() => {
+    getPosts();
+  })
+  .catch((e) => console.log(e));
+```
+  
+# PROMISE AND FETCH 
+  ```
+  const promise1 = Promise.resolve("Hello World");
+const promise2 = 10;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 2000, "How are you!");
+});
+
+const promise4 = fetch("https://jsonplaceholder.typicode.com/users").then(
+  (res) => res.json()
+);
+
+Promise.all([promise1, promise2, promise3, promise4]).then((values) =>
+  console.log(values)
+);
+  ```
+  
+# Async Await
+  ```
+  const post = [
+  { title: "First Post" },
+  { title: "Second Post" },
+  { title: "Third Post" },
+];
+
+function getPosts() {
+  let t = "";
+  setTimeout(() => {
+    post.forEach((item) => {
+      t += `<li>${item.title}</li>`;
+    });
+    document.body.innerHTML = t;
+  }, 1000);
+}
+
+function createPost(temp) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      post.push(temp);
+      resolve();
+    }, 2000);
+  });
+}
+
+async function init() {
+  await createPost({ title: "Fourth" });
+  getPosts();
+}
+init();
+  ```
+  
+  ***********************************************
+### WE CAN ALSO WRITE LIKE THIS
+
+```
+async function fetchUsers() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users").then(
+    (res) => res.json()
+  );
+  console.log(res);
+}
+
+fetchUsers();
+  
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
