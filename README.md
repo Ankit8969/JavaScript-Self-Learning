@@ -773,24 +773,160 @@ fetchUsers();
   
   ```
   
+  # Hoisting in JS
+    - Hoisting is a phenomena where you can access the variable and function before its initialization.
+```
+  console.log(x);
+console.log(add(2, 4));
+
+var x = 4;
+function add(x, y) {
+  return x + y;
+}
+```
+```
+  Output - 
+  undefined
+  6
+```
+
+### but in case of "let" and "const" If you are trying to access the varibale it gives you "Reference" Error
+
+## Scope Definition
+  - The part of the code where you can access the specific variable 
   
+## Scope Chain
+- In this code first second() will find b inside the scope of second function, and then it find the scope of first function then it will find the global memory scope
+- this is callled as scope chaining
+  ```
+    function first() {
+      function second() {
+        console.log(b);
+      }
+      second();
+    }
+    var b = 20;
+    first();
+  ```
+
+## Block in JS
+- We can use block by using {} these curly braces
+- Definition ***block are used to combine  multiple statement such that JavaScript runs all the command assuming to be a single statement.***
+
+## Shadowing in JS
+  - shadowing is the concept where the vaule of variable is changed in the global memory scope
+  - But it won't work in case of let and const
+  ```
+  var a = 20;
+  {
+    var a = 1;
+    let b = 2;
+    const c = 3;
+
+    console.log(a, b, c);
+  }
+  console.log(a);
+  ```
+
+# Closure
+  - Function bundled with its lexical environment is known as a closure. Whenever function is returned, 
+  even if its vanished in execution context but still it remembers the reference it was pointing to. 
+  - Its not just that function alone it returns but the entire closure and that's where it becomes interesting.
+  ```
+    function x() {
+        let a = 20;
+        function y() {
+          console.log(a);
+        }
+        return y;
+      }
+
+      let z = x();
+      z();
+  ```
+## Anonemous Function
+  ### Function without name are called Anonemous Function
+```
+  (function () {
+  console.log("Check");
+})();
+
+```
+
+# Function Statement
+  ```
+  function a(){
+    console.log("Check")
+  }
+  ```
+# Function Expression
+  ```
+  const b = function (){
+    console.log("Check")
+  }
+  ```
+- The main difference b/w function statement and function expression is the hoisting
+
+# Named Function Expression
+  ```
+  var b = function xyz(){
+      console.log("Check")
+  }
+  b();
+  xyz()// it gives you error
+  ```
+
+# Parameter and Argument
+  ```
+  function sum(a, b)  // parameter
+  {
+  }
+  sum(2,4)  // argument
+  ```
   
+# First Class Function / First class citizen
+  - the ability of function to be used as value and passed to a function and return from a function is known as first class function.
+
+```
+  var b = function (param) {
+  function xyz() {
+    param();
+    console.log("Check");
+  }
+  return xyz;
+};
+
+function sum() {
+  console.log("Sum function");
+}
+
+b(sum)();
+```
   
+# Arrow Function 
+```
+  const x = ()=>{};
+```
   
+## JavaScript is synchronous single threaded language it means it runs one command at a time in specific order.
   
+#CallBack
+- when you pass a function to a another function as an argument this is called as Callback function
+- Sum function is called as CallBack function
+```
+  function b(param) {
+  param();
+}
+
+function sum() {
+  console.log("Sum function");
+}
+
+b(sum);
+
+```
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+- then why the name is callback because we call that function sometime letter in our code that's why named is CallBack function.
   
   
   
