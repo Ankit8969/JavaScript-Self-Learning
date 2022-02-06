@@ -971,6 +971,121 @@ export default function App() {
   ```
   
   
+# call, apply and bind method
+
+## Call() Method
+  - In call() method we pass the argument by seprating with comma ','
+  ```
+      let obj1 = {
+      fname: "Ankit",
+      lname: "Yadav",
+      giveFull: function () {
+        console.log(this.fname, this.lname);
+      },
+    };
+
+    let externals = function (home, city) {
+      console.log(`My name is ${this.fname}`);
+      console.log(`My hometown is ${home} ${city}`);
+    };
+
+    obj1.giveFull();
+
+    let obj2 = {
+      fname: "sonu",
+      lname: "kumar",
+    };
+    
+    *** Function Borrowing***
+    obj1.giveFull.call(obj2);
+    
+  externals.call(obj2, "Bihar", "forbesganj");
+
+  ```
+  
+  
+## apply() method 
+  - In apply() method we pass the argument in the array
+  
+  ```
+      let obj1 = {
+      fname: "Ankit",
+      lname: "Yadav",
+      giveFull: function () {
+        console.log(this.fname, this.lname);
+      },
+    };
+
+    let externals = function (home, city) {
+      console.log(`My name is ${this.fname}`);
+      console.log(`My hometown is ${home} ${city}`);
+    };
+
+    obj1.giveFull();
+
+    let obj2 = {
+      fname: "sonu",
+      lname: "kumar",
+    };
+
+    obj1.giveFull.apply(obj2);
+    externals.apply(obj2, ["Bihar", "forbesganj"]);
+
+  ```
+  
+  
+ ## bind() method
+  - the basic difference b/w call() and bind() method is in bind() method it returns a function and we can use that function later.
+  
+  ```
+      let obj1 = {
+      fname: "Ankit",
+      lname: "Yadav",
+      giveFull: function () {
+        console.log(this.fname, this.lname);
+      },
+    };
+
+    let externals = function (home, city) {
+      console.log(`My name is ${this.fname}`);
+      console.log(`My hometown is ${home} ${city}`);
+    };
+
+    obj1.giveFull();
+
+    let obj2 = {
+      fname: "sonu",
+      lname: "kumar",
+    };
+
+    obj1.giveFull.call(obj2);
+    externals.apply(obj2, ["Bihar", "forbesganj"]);
+
+    let temp = obj1.giveFull.bind(obj2, "Bihar", "Forbesgaj");
+    console.log(temp);
+    temp();
+  ```
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
