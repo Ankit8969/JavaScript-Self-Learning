@@ -1065,12 +1065,216 @@ export default function App() {
     console.log(temp);
     temp();
   ```
+  ## It gives you undefined holes in the array
+  ```
+  const fruits = ["Banana", "Orange", "Apple"];
+  fruits[6] = "Lemon";  // Creates undefined "holes" in fruits
+```
+
+## Creating the empty array 
+  ```
+  // Create an array with 40 undefined elements:
+const points = new Array(40);  
+  ```
+  
+## Warning !
+Array elements can be deleted using the JavaScript operator delete.
+
+Using delete leaves undefined holes in the array.
+
+Use pop() or shift() instead.
+```
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+delete fruits[0];
+  ```
+##Merging Two Arrays
+  ```
+  const myGirls = ["Cecilie", "Lone"];
+  const myBoys = ["Emil", "Tobias", "Linus"];
+
+  const myChildren = myGirls.concat(myBoys);
+  ```
+
+  ```
+  const myChildren = arr1.concat(arr2, arr3);
+  ```
+##The slice() method slices out a piece of an array into a new array.
+
+```
+  const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1, 3);
+  ```
+```
+  let arr = [1,2,3,4,5,6];
+
+// For each is only to used for iteration
+let t = arr.forEach((data)=>{
+    return data;
+});
+console.log(t);
+
+// In map method it creates the new array
+let t2 = 2;
+arr.map((data, index, arr)=>{
+    console.log(data, index, arr)
+})
+console.log(arr);
+console.log(t2);
+
+
+// It gives the new array
+let t3 = arr.filter((data)=>{
+    return data>4;
+})
+console.log(t3);
+
+```
+## RegExp 
+- In JavaScript, regular expressions are often used with the two string methods: search() and replace().
+- The search() method uses an expression to search for a match, and returns the position of the match.
+- The replace() method returns a modified string where the pattern is replaced.
+
+  
+```
+  let text = "Visit W3Schools";
+  let n = text.search(/w3schools/i);
+```
+
+## We can also use try and catch like this
+  ```
+  <p id="demo"></p>
+
+<script>
+try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+</script>
+  ```
+  
+##The throw Statement
+***The throw statement allows you to create a custom error***
+  
+```
+throw "Too big";    // throw a text
+throw 500;          // throw a number
+```
+  
+##The finally Statement
+```
+  try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}
+finally {
+  Block of code to be executed regardless of the try / catch result
+}
+```
+  
+
+## Scope
+- Js have three type of scope
+- Block Scope  {}
+- Function Scope
+- Global Scope
+
+
+
+## "use strict"; Defines that JavaScript code should be executed in "strict mode".
+  
+## Modules
+
+- JavaScript modules allow you to break up your code into separate files.
+- This makes it easier to maintain the code-base.
+- JavaScript modules rely on the import and export statements.
+  
+
+  ## more about JSON
+
+- JSON stands for JavaScript Object Notation
+- JSON is a lightweight data interchange format
+- JSON is language independent *
+- JSON is "self-describing" and easy to understand
+
+  ```
+  {
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+}
+  ```
+  
+## The debugger Keyword
+
+- The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function.
+- we are making dubug in source tab in console
+  
+```
+let x = 15 * 5;
+debugger;
+document.getElementById("demo").innerHTML = x;
+  ```
   
 
   
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
   
   
   
