@@ -1225,7 +1225,7 @@ document.getElementById("demo").innerHTML = x;
 let arr = new Array(23).fill(0);
 console.log(arr);
 ```
-  
+  ```
   
 
   
