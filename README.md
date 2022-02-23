@@ -1219,7 +1219,13 @@ finally {
 let x = 15 * 5;
 debugger;
 document.getElementById("demo").innerHTML = x;
-  ```
+```
+## Fill the array with zeros
+```
+let arr = new Array(23).fill(0);
+console.log(arr);
+```
+  
   
 
   
