@@ -1227,7 +1227,246 @@ console.log(arr);
 ```
   ```
   
+temporal dead zone- the temporal dead zone (TDZ) refers to the period of 
+ time between the creation of a variable using the let or const keyword, and the 
+ point at which the variable is initialized with a value. During the TDZ, if you try to access 
+ the variable, you will get a ReferenceError because the variable is not yet defined.
 
+ // reference error, syntax error, type error 
+Reference Error:
+A reference error occurs when you try to use a variable or function that 
+has not been declared or is out of scope.
+
+Syntax Error:
+A syntax error occurs when there is a mistake in the syntax of your code. This can happen when you forget a closing bracket, misspell a keyword, 
+or make some other syntax mistake
+
+Type Error:
+A type error occurs when you try to use a value 
+that is not of the expected type
+
+# Basic difference b/w var let, and const;
+In summary, var has function scope, let and const have block scope. var can be redeclare 
+and updated, let can be updated but not redeclare, and const cannot be updated or 
+redeclare.
+
+Eg. Function Scope
+function a(){
+    var x = 2;
+    console.log(x);
+}
+a();
+
+Eg. Block Scope
+function b(){
+    if (true){
+        let x = 3;
+        console.log(x);
+    }
+    console.log(x);
+}
+b();
+
+# Block in JS
+ a block is a set of statements enclosed in curly braces {}. Blocks are used to group statements together 
+ into a single unit, and they can be used wherever a single statement is expected, 
+ such as in loops, if statements, or function definitions.
+
+ # we have two type of scope in javascript
+ 1. Global scope
+ var x = 10; // Global variable
+
+function myFunction() {
+  console.log(x); // Output: 10 (accessing global variable)
+}
+
+myFunction();
+console.log(x); // Output: 10 (accessing global variable)
+
+ 2. Local scope
+ function myFunction() {
+  var x = 10; // Local variable
+  console.log(x); // Output: 10 (accessing local variable)
+}
+
+myFunction();
+console.log(x); // Output: Error (x is not defined)
+
+
+# Shadowing in JavaScript
+Shadowing in JavaScript occurs when a variable declared in an inner scope has the same name as a variable 
+declared in an outer scope. In this situation, the inner variable "shadows" the outer variable, meaning that 
+the inner variable takes precedence and the outer variable becomes temporarily inaccessible.
+
+var x = 10; // Global variable
+
+function myFunction() {
+  var x = 20; // Local variable with same name as global variable
+  console.log(x); // Output: 20 (accessing local variable)
+}
+
+myFunction();
+console.log(x); // Output: 10 (accessing global variable)
+
+# Illegal shadowing
+Illegal shadowing in JavaScript occurs when a variable in an inner scope has the same name as a variable in an outer scope, 
+but the inner variable is declared with a different type of declaration keyword (let or const) than the outer variable 
+(var or another let/const declaration). This can lead to unexpected results because the inner variable does not actually shadow the outer variable, but instead creates a new variable with the same name.
+
+var x = 10; // Global variable
+
+function myFunction() {
+  let x = 20; // Illegal shadowing (let instead of var)
+  console.log(x); // Output: 20 (accessing local variable)
+}
+
+myFunction();
+console.log(x); // Output: 10 (accessing global variable)
+
+# Block also follows the lexical chaining 
+
+# CLOSURE:
+
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding 
+state (the lexical environment).
+
+In JavaScript, a closure is created when a function "remembers" the variables and parameters that were in its outer lexical environment (scope) when it was declared, even if 
+those variables and parameters are no longer in scope when the function is called. 
+This allows the function to access and manipulate those variables and parameters as if they were still in scope, even though they would normally be inaccessible or undefined.
+Closures are created automatically when a function is defined inside another function, and can be used to create private variables and functions that are hidden from the global 
+scope and can only be accessed by the outer function.
+
+function outerFunction(x) {
+  function innerFunction(y) {
+    return x + y; // Accessing x from outer function's scope
+  }
+  return innerFunction;
+}
+
+var add5 = outerFunction(5); // Creates a closure with x = 5
+console.log(add5(3)); // Output: 8 (accesses x = 5 from closure and y = 3 from function call)
+
+
+
+# Function Statement
+function myFunction() {
+  var x = 10; // Local variable
+  console.log(x); // Output: 10 (accessing local variable)
+}
+
+# Function Expression
+const myFunctionExpression = function(){
+  var x = 10; // Local variable
+  console.log(x); // Output: 10 (accessing local variable)
+}
+
+# Anonymous Function
+it is use when we need to assign a function to a variable
+var greeting = function(name) {
+  console.log("Hello, " + name + "!");
+};
+greeting("John"); // Outputs "Hello, John!"
+
+
+# Named functions expression
+const myNamedFunctionExpression = function xyz(name) {
+  console.log("Hello, " + name + "!");
+};
+we can't call a function like xyz() it gives error.
+
+# diff b/w params and arguments
+function myFunction(params1, params2) {
+  console.log(params1 + " " + params2);
+}
+myFunction(argue1, argue2)
+
+
+# First class function
+function are also first class citizen.
+In JavaScript, functions are considered first-class citizens, which means they are treated like 
+any other value, such as a number or a string. This allows functions to be passed as arguments to other functions, 
+returned from functions, and stored in variables or data structures.
+
+# CallBack functions
+passing a function as an argument
+
+# JavaScript is a synchronous and single-threaded language.
+
+# Best example two handle the global variable using closures
+function attachEventListener(){
+  let count = 0 ;
+  document.getElementById('btn').addEventListener("click", function(){
+    count++;
+    console.log(count);
+  });
+}
+attachEventListener();
+
+# closure function is heavy, it make our webpage slow
+so, when we don't use eventListener then we should have remove this.
+
+# CallStack 
+it follows the "Stack" data structure
+when every we run any code of JS first it create a execution context and push it onto the stack
+
+
+# Callback Queue
+A callback queue in JavaScript is a queue that holds callbacks that are waiting to be executed. 
+Eg: 
+function callbackFunction() {
+  console.log("Callback function executed");
+}
+
+console.log("Before timeout");
+setTimeout(callbackFunction, 2000);
+console.log("After timeout");
+
+
+# Event Loop
+
+The event loop is a crucial part of JavaScript's concurrency model, which enables asynchronous and non-blocking programming. 
+It is responsible for managing the execution of code in a single-threaded environment, allowing JavaScript to handle multiple 
+tasks concurrently without blocking the main thread.
+
+The event loop works by continuously monitoring the call stack and the callback queue. When the call stack is empty, 
+the event loop checks the callback queue for any pending callbacks or events. If there are any pending callbacks, the event 
+loop will add them to the call stack to be executed. Once the callback is executed, any new functions it calls will be added to the call stack, 
+and the event loop continues to monitor the queue.
+ 
+# Microtask Queue
+Microtasks are scheduled using queueMicrotask() function or Promise.resolve() method. When a microtask is scheduled, it is added to the 
+end of the microtask queue. When the current task in the event loop completes, the event loop will check the microtask queue for any pending 
+microtasks and execute them before continuing with the next task in the event loop.
+
+Eg.
+
+console.log('1');
+Promise.resolve().then(() => {
+  console.log('2');
+});
+console.log('3');
+
+
+All the callback which comes through the promises will come inside the microtask queue.
+
+# Map, filter and reduce.
+there are the higher order function.
+
+
+# Local Storage and sessions storage
+
+Yes, both local storage and session storage are browser web APIs that are used to store data in the browser. They provide a way for web developers 
+to store data on the client-side, which can be used to improve the user experience of their web applications.
+
+Local storage and session storage are both part of the Web Storage API, which is a standard defined by the World Wide Web Consortium (W3C). They allow
+ developers to store key-value pairs in the browser, which can be accessed and manipulated using JavaScript.
+
+Local storage is used to store data that persists even after the browser is closed or the user navigates away from the website. It is useful for storing 
+user preferences, settings, and other data that needs to be retained between sessions.
+
+Session storage, on the other hand, is used to store data that is only available for the current session. When the user closes the browser or navigates 
+away from the website, the data is deleted. It is useful for storing temporary data that is only needed for the current session, such as a user's shopping 
+cart in an e-commerce website.
   
   
   
