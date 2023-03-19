@@ -1,0 +1,37 @@
+
+const promise1 = Promise.reject(0);
+const promise2 = new Promise((resolve, reject) => setTimeout(reject, 600, 'quick'));
+const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 500, 'slow'));
+
+const promises = [promise1, promise2, promise3];
+
+
+
+
+
+function promiseAny(promiseArray){
+  if (!Array.isArray(promiseArray)){
+    throw new SyntaxError("Input promise must be an array");
+  }
+  return new Promise((resolve, reject)=>{
+    let cnt = 0;
+    promiseArray.forEach((promise,index)=>{
+      promise.then((value)=>{
+        cnt ++;
+        resolve(value);
+      }).catch((err)=>{
+        cnt ++ ;
+        if (cnt === promiseArray.length)
+          reject("All Promises were rejected");
+      })
+    })
+  })
+};
+promiseAny(promises).then((res)=>{
+  console.log(res);
+}).catch((err)=>{
+  console.log(err);
+})
+
+
+
