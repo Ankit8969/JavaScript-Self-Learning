@@ -1,0 +1,43 @@
+
+
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 200, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 400, 'two');
+});
+
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(reject, 100, 'three');
+});
+const promise = [promise1, promise2,promise3];
+
+// Promise.race(promises).then((value) => {
+//   console.log(value);
+// }).catch((err)=>{
+//   console.log(err);
+// })
+
+
+function promiseRace(promiseArray){
+  return new Promise((resolve, reject)=>{
+    if (!Array.isArray(promiseArray)){
+      reject("Input must be an array");
+    }
+    promiseArray.forEach((promise, index)=>{
+      promise.then((res)=>{
+        resolve(res);
+      }).catch((err)=>{
+        reject(err);
+      })
+    })
+  })
+};
+promiseRace(promise).then((res)=>{
+  console.log(res);
+}).catch((err)=>{
+  console.log(err);
+})
+
