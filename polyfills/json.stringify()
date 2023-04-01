@@ -1,0 +1,131 @@
+
+
+let complexObject = {
+  name:"Ankit",
+  class:"Bachelors",
+  more1:{
+    home:"Bihar",
+    company: "IBM",
+    mob: 999999,
+    companiesList:[ "A","B","C","D",4,5,6,7],
+    companiesList2:[ "A","B","C","D",4,5,6,7],
+  },
+  more2:{
+    home1:"Bihar",
+    company1: "IBM",
+    mob1: 999999,
+    companiesList1:[ "A","B","C","D",4,5,6,7],
+    companiesList21:[ "A","B","C","D",4,5,6,7],
+  },
+  more3:{
+    more:{
+      home2:"Bihar",
+      company2: "IBM",
+      mob: 999999,
+      companiesList:[ "A","B","C","D",4,5,6,7],
+      companiesList2:[ "A","B","C","D",4,5,6,7],
+    },
+    more2:{
+      home:"Bihar",
+      company: "IBM",
+      mob: 999999,
+      companiesList:[ "A","B","C","D",4,5,6,7],
+      companiesList2:[ "A","B","C","D",4,5,6,7],
+    }
+  },
+  arr:[
+    {
+      home:"Bihar",
+      company: "IBM",
+      mob: 999999,
+      companiesList:[ "A","B","C","D",4,5,6,7],
+      companiesList2:[ "A","B","C","D",4,5,6,7],
+    },
+    {
+      home1:"Bihar",
+      company1: "IBM",
+      mob1: 999999,
+      companiesList1:[ "A","B","C","D",4,5,6,7],
+      companiesList21:[ "A","B","C","D",4,5,6,7],
+    },
+    {
+      more:{
+        home2:"Bihar",
+        company2: "IBM",
+        mob: 999999,
+        companiesList:[ "A","B","C","D",4,5,6,7],
+        companiesList2:[ "A","B","C","D",4,5,6,7],
+      },
+      more2:{
+        home:"Bihar",
+        company: "IBM",
+        mob: 999999,
+        companiesList:[ "A","B","C","D",4,5,6,7],
+        companiesList2:[ "A","B","C","D",4,5,6,7],
+      }
+    }
+  ]
+}
+
+let obj = {
+  name:"Ankit",
+  lname:"Yadav",
+  arr:[
+    {
+      name:"Ankit",
+      lname:"Yadav",
+    },
+    {
+      arr:[1,2,3,4]
+    }
+  ]
+}
+
+// console.log(JSON.stringify(complexObject));
+
+function stringifyPolyFill(obj){
+  // keys of object
+  let keys = Object.keys(obj);
+  if (typeof obj === 'object' && !Array.isArray(obj)){
+    stringified += `{`;
+    keys.forEach((key, index)=>{
+      stringified += `"${key}":`;
+      if (typeof obj[key] === 'string'){
+        stringified += `"${obj[key]}"${index === keys.length-1 ?"":","}`
+      }else if (typeof obj[key] === 'number'){
+        stringified += (obj[key] + (index === keys.length-1 ?"":","))
+      }else if (Array.isArray(obj[key])){
+        stringifyPolyFill(obj[key]);
+      }else{
+        stringifyPolyFill(obj[key]);
+      }
+    })
+    if (stringified[stringified.length - 1] === ','){
+      stringified = stringified.substring(0, stringified.length -1);
+    }
+    stringified += `},`;
+  }else{
+    if (stringified[stringified.length - 1] === ','){
+      stringified = stringified.substring(0, stringified.length -1);
+    }
+    stringified += "[";
+    obj.forEach((item, index)=>{
+      if (typeof item === 'string')
+        stringified += `"${item}"${index === keys.length-1 ?"":","}`;
+      else if (typeof item === 'number'){
+        stringified += (item + (index === keys.length-1 ?"":","));
+      }else
+        stringifyPolyFill(item);
+    })
+    if (stringified[stringified.length - 1] === ','){
+      stringified = stringified.substring(0, stringified.length -1);
+    }
+    stringified += "],";
+  }
+};
+
+let stringified = "";
+stringifyPolyFill(obj);
+// popping the last char from the stringified
+console.log(stringified.substring(0, stringified.length - 1));
+
