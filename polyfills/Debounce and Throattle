@@ -1,0 +1,37 @@
+// Throallte
+
+
+
+function fun(){
+  console.log("CHECK FUN");
+}
+
+
+function throatle(fn, delay){
+  let timer;
+  let prevTime = Date.now();
+  return function(){
+    clearTimeout(timer);
+    if (delay < (Date.now() - prevTime)){
+      fn();
+      prevTime = Date.now();
+    }else{
+      timer = setTimeout(fn, delay);
+    }
+  }
+}
+
+document.querySelector("input")
+.addEventListener("keyup", throatle(fun, 500));
+
+
+
+# Debounce
+
+function debounce(fn, delay){
+  let timer;
+  return function(){
+    clearTimeout(timer);
+    timer = setTimeout(fn, delay);
+  }
+}
