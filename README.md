@@ -1470,7 +1470,29 @@ cart in an e-commerce website.
   
   
   
-  
+  ```
+  function debounce(fun, delay){
+    let timer;
+    return function(){
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            fun();
+        }, delay);
+    }
+}
+
+function throatle(fun, delay){
+    let timerId;
+    return function(){
+        if (!timerId){
+            timerId = setTimeout(()=>{
+                fun();
+                timerId = null;
+            },delay);
+        }
+    }
+}
+  ```
   
   
   
