@@ -1,0 +1,36 @@
+export const folder = {
+  name: "root",
+  isFolder: true,
+  subFolder: [
+    {
+      name: "src",
+      isFolder: true,
+      subFolder: [
+        {
+          name: "ankit.jsx",
+          isFolder: false
+        }
+      ]
+    },
+    {
+      name: "images",
+      isFolder: true,
+      subFolder: [
+        {
+          name: "sonu.png",
+          isFolder: false
+        }
+      ]
+    },
+    {
+      name: "abcdef",
+      isFolder: true,
+      subFolder: [
+        {
+          name: "sdfsdf.png",
+          isFolder: false
+        }
+      ]
+    }
+  ]
+};
